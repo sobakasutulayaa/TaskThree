@@ -72,7 +72,7 @@ public class Main {
     }
 
     /**
-     * конвентирет массив в QueueRealization
+     * конвентирует массив в QueueImplementation
      */
     static void convertIntArrToQueueImplementation(int[] arr, QueueImplementation<Integer> queue) {
         for (int element : arr) {
