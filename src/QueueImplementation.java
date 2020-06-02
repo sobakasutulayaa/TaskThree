@@ -96,7 +96,6 @@ public class QueueImplementation<Item> implements Iterable<Item> {
         private Node<Item> next;
     }
 
-    // итератор не реализует remove(), так как это необязательно
     private class LinkedIterator implements Iterator<Item> {
         private Node<Item> current;
 
