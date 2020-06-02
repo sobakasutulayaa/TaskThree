@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 
@@ -7,23 +6,20 @@ public class Task {
 
     public static Queue<Integer> swapPairedElementsBasedOnJavaQueue(Queue<Integer> oldQueue) {
         Queue<Integer> newQueue = new LinkedList<>();
-        List<Integer> oldList = new LinkedList<>(oldQueue);
+        int deleteCounter = 0;
 
-        int index = 1, count = 0, lastIndex = oldQueue.size() - 1;
+        while (deleteCounter < oldQueue.size() + deleteCounter) {
 
-        while (count < oldList.size() ) {
-            count++;
-            newQueue.add(oldList.get(index));
-
-            if (oldList.size() % 2 != 0 && count == lastIndex) {
-                newQueue.add(oldList.get(count));
-                break;
-            }
-
-            if (index % 2 == 0) {
-                index = index + 3;
+            if (oldQueue.size() % 2 == 1 && deleteCounter == oldQueue.size() + deleteCounter - 1) {
+                int temp = oldQueue.poll();//return and delete element
+                newQueue.add(temp);//add element
+                deleteCounter++;
             } else {
-                index--;
+                int temp1 = oldQueue.poll();
+                int temp2 = oldQueue.poll();
+                deleteCounter += 2;
+                newQueue.add(temp2);
+                newQueue.add(temp1);
             }
         }
 
@@ -32,26 +28,24 @@ public class Task {
 
     public static QueueImplementation<Integer> swapPairedElementsBasedOnQueueImplementation
             (QueueImplementation<Integer> oldQueue) throws Exception {
-        
+
         QueueImplementation<Integer> newQueue = new QueueImplementation<>();
-        int index = 1, count = 0, lastIndex = oldQueue.size() - 1;
+        int deleteCounter = 0;
 
-        while (count < oldQueue.size() ) {
-            count++;
-            newQueue.add(oldQueue.get(index));
+        while (deleteCounter < oldQueue.size() + deleteCounter) {
 
-            if (oldQueue.size() % 2 != 0 && count == lastIndex) {
-                newQueue.add(oldQueue.get(count));
-                break;
-            }
-
-            if (index % 2 == 0) {
-                index = index + 3;
+            if (oldQueue.size() % 2 == 1 && deleteCounter == oldQueue.size() + deleteCounter - 1) {
+                int temp = oldQueue.dequeue(); //return and delete element
+                newQueue.enqueue(temp); //add element
+                deleteCounter++;
             } else {
-                index--;
+                int temp1 = oldQueue.dequeue();
+                int temp2 = oldQueue.dequeue();
+                deleteCounter += 2;
+                newQueue.enqueue(temp2);
+                newQueue.enqueue(temp1);
             }
         }
-
         return newQueue;
     }
 
@@ -67,6 +61,7 @@ public class Task {
             count++;
         }
     }
+
     public static void printQueueImplementation(QueueImplementation<Integer> queue) {
         int count = 1;
 

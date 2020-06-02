@@ -6,14 +6,14 @@ public class Main {
         if (args.length < 1 || args.length > 3) throw new Exception("Enter arguments in this order:" +
                 "1) con or win" +
                 "2) input file name" +
-                "3) output file name");
+                "3) output file name"); //можно не вводить 2 и 3 пункт или только 3 пункт
         if (args[0].equals("con")) {
             consoleStart(args);
         } else {
             if (args[0].equals("win")) {
                 winStart(args);
             } else {
-                throw new Exception("First argument is wrong.");
+                throw new Exception("First argument is wrong");
             }
         }
     }
@@ -46,7 +46,7 @@ public class Main {
         System.out.println("------------");
         System.out.println("Origin Queue: ");
         Task.printJavaQueue(oldQueue);
-        System.out.println("in QueueImplementation: ");
+        System.out.println("in QueueImplementation:");
         Task.printQueueImplementation(myQueue);
         System.out.println("------------");
 
@@ -55,7 +55,7 @@ public class Main {
 
         System.out.println("New Queue: ");
         Task.printJavaQueue(newQueue);
-        System.out.println("in QueueImplementation: ");
+        System.out.println("in QueueImplementation:");
         Task.printQueueImplementation(newMyQueue);
         System.out.println("------------");
 
@@ -72,11 +72,12 @@ public class Main {
     }
 
     /**
-     * конвертирует массив в QueueImplementation
+     * конвентирет массив в QueueImplementation
      */
     static void convertIntArrToQueueImplementation(int[] arr, QueueImplementation<Integer> queue) {
         for (int element : arr) {
-            queue.add(element);
+            queue.enqueue(element);
         }
     }
+
 }
